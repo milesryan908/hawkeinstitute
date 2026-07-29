@@ -163,13 +163,32 @@
 
 <section class="signup-section">
   <h2>Enter for your chance to win free entry into our Workforce Development Program <span class="msrp">(MSRP $7,000)</span></h2>
-  <form class="signup-form" action="https://formspree.io/f/xbdnbpgd" method="POST">
+  <form id="signup-form" class="signup-form" action="https://formspree.io/f/xbdnbpgd" method="POST">
     <input type="hidden" name="_subject" value="New Workforce Development Program entry">
-    <input type="hidden" name="_next" value="https://hawkeinstitute.com/thank-you.html">
     <input type="email" name="email" placeholder="Enter your email" required>
     <button type="submit">Enter to Win</button>
   </form>
 </section>
+
+<script>
+  document.getElementById('signup-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var form = e.target;
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(function (response) {
+      if (response.ok) {
+        window.location.href = 'thank-you.html';
+      } else {
+        alert('Something went wrong submitting your entry. Please try again.');
+      }
+    }).catch(function () {
+      alert('Something went wrong submitting your entry. Please try again.');
+    });
+  });
+</script>
 
 <footer>
   &copy; 2026 Hawke Institute for Facility Systems
