@@ -96,6 +96,15 @@
     font-weight: bold;
   }
 
+  .disclaimer {
+    max-width: 480px;
+    margin: 1rem auto 0;
+    text-align: left;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: #6b7a89;
+  }
+
   form.signup-form {
     display: flex;
     flex-wrap: wrap;
@@ -163,6 +172,11 @@
 
 <section class="signup-section">
   <h2>Enter for your chance to win free entry into our Workforce Development Program <span class="msrp">(MSRP $7,000)</span></h2>
+  <p class="disclaimer">
+    *Courses will be rolled out throughout 2026 and 2027<br>
+    **Transfer of seat permissible to a colleague<br>
+    ***Not redeemable for cash value
+  </p>
   <form id="signup-form" class="signup-form" action="https://formspree.io/f/xbdnbpgd" method="POST">
     <input type="hidden" name="_subject" value="New Workforce Development Program entry">
     <input type="email" name="email" placeholder="Enter your email" required>
